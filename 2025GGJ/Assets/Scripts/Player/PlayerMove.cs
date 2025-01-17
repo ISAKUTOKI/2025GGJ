@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float waitTime; // 移动后的等待时间
     [SerializeField] private float moveSpeed = 5f; // 玩家移动速度
 
+    private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
+
     void Start()
     {
         moveCellCount = 1; // 初始化每次移动的格子数
@@ -21,19 +24,34 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         MoveCheck();
+        ProcessMoveQueue(); // 处理移动队列
     }
 
-    private IEnumerator PlayerMoveCells(int i, Vector3 moveDirection)
+    /// <summary>
+    /// 处理移动队列
+    /// </summary>
+    private void ProcessMoveQueue()
+    {
+        if (!isMoving && moveQueue.Count > 0)
+        {
+            Vector3 direction = moveQueue.Dequeue();
+            StartCoroutine(PlayerMoveCells(moveCellCount, direction));
+        }
+    }
+
+    /// <summary>
+    /// 添加移动请求到队列
+    /// </summary>
+    public void RequestMove(Vector3 direction)
+    {
+        moveQueue.Enqueue(direction);
+    }
+
+    public IEnumerator PlayerMoveCells(int i, Vector3 moveDirection)
     {
         isMoving = true; // 标记为正在移动
 
-        Vector3 targetPosition = transform.position; // 目标位置
-
-        // 计算总移动距离
-        float totalDistance = i * cellSize;
-
-        // 计算目标位置
-        targetPosition += moveDirection * totalDistance;
+        Vector3 targetPosition = transform.position + moveDirection * (i * cellSize);
 
         // 平滑移动到目标位置
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
@@ -44,7 +62,6 @@ public class PlayerMove : MonoBehaviour
 
         // 确保最终位置准确
         transform.position = targetPosition;
-        Debug.Log("移动完成，当前位置: " + transform.position);
 
         // 延迟 waitTime 秒
         yield return new WaitForSeconds(waitTime);
@@ -61,6 +78,9 @@ public class PlayerMove : MonoBehaviour
         float threshold = 0.1f;
         if (Mathf.Abs(horizontal) < threshold) horizontal = 0;
         if (Mathf.Abs(vertical) < threshold) vertical = 0;
+
+        // 注释掉向下移动的功能
+        if (vertical < 0) vertical = 0; // 忽略向下的输入
 
         // 确保每次只能选择一个方向（水平或垂直）
         if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
@@ -85,7 +105,7 @@ public class PlayerMove : MonoBehaviour
 
         if (moveDirection != Vector3.zero) // 如果有输入
         {
-            StartCoroutine(PlayerMoveCells(moveCellCount, moveDirection)); // 移动 moveCellCount 格
+            RequestMove(moveDirection); // 将移动请求添加到队列
         }
     }
 }

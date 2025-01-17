@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthBehaviour : MonoBehaviour
 {
@@ -24,10 +25,15 @@ public class PlayerHealthBehaviour : MonoBehaviour
 
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("isDied");
-        SaveSystemehaviour.Instance.LoadLastSave();
+        //SaveSystemehaviour.Instance.LoadLastSave();
+
+        // 获取当前场景的名称
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        // 重新加载当前场景
+        SceneManager.LoadScene(currentSceneName);
     }
 
 
