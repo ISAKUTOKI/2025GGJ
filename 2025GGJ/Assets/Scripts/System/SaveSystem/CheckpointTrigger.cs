@@ -23,7 +23,7 @@ public class CheckpointTrigger : MonoBehaviour
             Vector3 playerPosition = transform.position;
 
             // 调用 SaveManager 保存游戏
-            SaveManager.Instance.SaveGame(playerPosition, checkpointLevel);
+            SaveSystemehaviour.Instance.SaveGame(playerPosition, checkpointLevel);
 
         }
     }

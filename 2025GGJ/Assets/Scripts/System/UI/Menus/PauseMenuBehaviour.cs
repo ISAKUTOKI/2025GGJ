@@ -9,24 +9,29 @@ public class PauseMenuBehaviour : MonoBehaviour
     /// 暂停菜单系统，以及暂停菜单的点击系统
     /// </summary>
 
+    [HideInInspector] public bool canSwitchPauseMenu = true;
     private bool isPaused;
-    [SerializeField] GameObject pauseMenuUI;
+
     void Start()
     {
-        if (pauseMenuUI != null) 
-            pauseMenuUI.SetActive(false);
+        if (UIBehaviour.Instance.pauseMenuUI != null)
+            UIBehaviour.Instance.pauseMenuUI.SetActive(false);
         isPaused = false;
+        canSwitchPauseMenu = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (canSwitchPauseMenu)
         {
-            PauseMenu();
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                PauseMenuSwitch();
+            }
         }
     }
 
-    private void PauseMenu()
+    private void PauseMenuSwitch()
     {
         if (!isPaused)
         {
@@ -40,7 +45,7 @@ public class PauseMenuBehaviour : MonoBehaviour
 
     private void ToPauseMenu()
     {
-        pauseMenuUI.SetActive(true); // 显示暂停菜单
+        UIBehaviour.Instance.pauseMenuUI.SetActive(true); // 显示暂停菜单
         Time.timeScale = 0f; // 暂停游戏时间
         isPaused = true;
         Debug.Log("暂停");
@@ -48,20 +53,27 @@ public class PauseMenuBehaviour : MonoBehaviour
 
     public void BackToGame()
     {
-        pauseMenuUI.SetActive(false); // 隐藏暂停菜单
+        UIBehaviour.Instance.pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // 恢复游戏时间
         isPaused = false;
         Debug.Log("继续");
+        canSwitchPauseMenu = true;
     }
 
     public void Option()
     {
+        UIBehaviour.Instance.pauseMenuUI.SetActive(false);
+        UIBehaviour.Instance.optionMenuUI.SetActive(true);
         Debug.Log("设置");
     }
 
     public void BackToMenu()
     {
+        UIBehaviour.Instance.pauseMenuUI.SetActive(false);
+        UIBehaviour.Instance.startMenuSystem.ToStartMenu();
         Debug.Log("回到菜单");
+        isPaused = false;
+        canSwitchPauseMenu = false;
     }
 
     public void ExitGame()

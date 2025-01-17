@@ -22,16 +22,18 @@ public class PlayerBehaviour : MonoBehaviour
 
 
     public GameObject view;
-    public void Start()
+
+    private void Awake()
     {
         Instance = this;
 
+    }
+    private void Start()
+    {
         move= GetComponent<PlayerMove>();
         jump= GetComponent<PlayerJump>();
         groundCheck=GetComponentInChildren<PlayerGroundCheck>();
         position= GetComponent<PlayerPosition>();
         health= GetComponent<PlayerHealthBehaviour>();
-
-
     }
 }

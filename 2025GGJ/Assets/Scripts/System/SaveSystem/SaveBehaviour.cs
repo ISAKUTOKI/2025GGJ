@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveSystemehaviour : MonoBehaviour
 {
     /// <summary>
     /// 存档系统
     /// </summary>
 
-    public static SaveManager Instance; // 单例模式
+    public static SaveSystemehaviour Instance; // 单例模式
 
-    private List<SaveData> savePoints = new List<SaveData>(); // 存档列表
+    public List<SaveData> savePoints = new List<SaveData>(); // 存档列表
+
+    [SerializeField] GameObject initialSavePoint;
 
     private void Awake()
     {
-            Instance = this;
+        Instance = this;
+    }
+
+    private void Start()
+    {
+
     }
 
     // 创建存档点
@@ -26,7 +33,7 @@ public class SaveManager : MonoBehaviour
             currentLevel = currentLevel
         };
         savePoints.Add(savePoint);
-        Debug.Log("Game saved at level " + currentLevel);
+        //Debug.Log("Game saved at level " + currentLevel);
     }
 
     // 加载上一个存档点
@@ -56,4 +63,24 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    //设置为新游戏
+    public void NewGame()
+    {
+        ClearSave();
+        InitialSaveData();
+        LoadLastSave();
+    }
+
+    //清除保存数据
+    private void ClearSave()
+    {
+        savePoints.Clear();
+    }
+
+    private void InitialSaveData()
+    {
+        SaveGame(initialSavePoint.transform.position, 0);
+        //Debug.Log("游戏初始化 坐标为 " + PlayerBehaviour.Instance.position.currentPlayerPosition);
+        //Debug.Log(initialSavePoint.transform.position);
+    }
 }

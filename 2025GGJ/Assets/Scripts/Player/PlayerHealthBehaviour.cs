@@ -27,7 +27,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
     private void Die()
     {
         Debug.Log("isDied");
-        SaveManager.Instance.LoadLastSave();
+        SaveSystemehaviour.Instance.LoadLastSave();
     }
 
 
