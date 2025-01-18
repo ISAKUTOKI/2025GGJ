@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
         StartCoroutine(PlayerBehaviour.Instance.playerSound.PlayMoveSound());
-        Debug.Log("响了！");
+        //Debug.Log("响了！");
         backToPosition = transform.position;
         //Debug.Log("记录当前位置");
 
