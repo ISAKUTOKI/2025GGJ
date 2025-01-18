@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrossOneCellZone : MonoBehaviour
+public class BlowDownOneCellZone : MonoBehaviour
 {
     private bool playerCanBeBlew;
     private void Update()

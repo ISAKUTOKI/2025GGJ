@@ -83,6 +83,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
+            deflectDirection = GetMoveDirection() * -1;
             //Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
             currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, GetMoveDirection()));
             CanMoveAgainCheck();
@@ -196,9 +197,10 @@ public class PlayerMove : MonoBehaviour
     }
     private IEnumerator MoveBackThreeCellsCoroutine()
     {
-        deflectDirection = GetMoveDirection() * -1;
-        Debug.Log("反弹方向是 "+ deflectDirection);
+        PlayerBehaviour.Instance.health.canBeHurt = false;
+
         Debug.Log("移动方向是 " + GetMoveDirection());
+        Debug.Log("反弹方向是 " + deflectDirection);
 
         isBackMoved = true;
         isMoving = true; // 标记为正在移动
@@ -213,7 +215,7 @@ public class PlayerMove : MonoBehaviour
 
         // 确保最终位置准确
         transform.position = backToPosition;
-        Debug.Log("到达反弹位置 "+ transform.position);
+        Debug.Log("到达反弹位置 " + transform.position);
         // 第二步：从 backToPosition 向 deflectDirection 方向移动两格
         Vector3 targetPosition = backToPosition + deflectDirection * (2 * cellSize); // 计算目标位置
 
@@ -225,7 +227,7 @@ public class PlayerMove : MonoBehaviour
 
         // 确保最终位置准确
         transform.position = targetPosition;
-        Debug.Log("到达指定位置 "+ targetPosition);
+        Debug.Log("到达指定位置 " + targetPosition);
 
         Debug.Log("又移动了 " + targetPosition);
 
@@ -237,6 +239,8 @@ public class PlayerMove : MonoBehaviour
         isForcedMove = false; // 标记为强制移动结束
         canMoveAgain = true; // 可以再次移动
         currentMoveCoroutine = null; // 清除引用
+        PlayerBehaviour.Instance.health.canBeHurt = true;//增加反弹时候的无敌时间
+
     }
 
 }

@@ -6,6 +6,6 @@ public class TestResetCurrentScene : MonoBehaviour
 {
     public void ResetCurrentScene()
     {
-        PlayerBehaviour.Instance.health.Die();
+        PlayerBehaviour.Instance.health.TryToDie();
     }
 }

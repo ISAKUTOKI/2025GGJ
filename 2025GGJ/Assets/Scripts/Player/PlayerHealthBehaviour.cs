@@ -9,21 +9,22 @@ public class PlayerHealthBehaviour : MonoBehaviour
     /// 所操控角色的血量系统
     /// </summary>
 
-    void Start()
-    {
+    [HideInInspector] public bool canBeHurt = true;
 
+
+    private void Update()
+    {
+        if (MapSystemBehaviour.Instance.killZone.isMustBeKilled)
+            Die();
     }
 
-    void Update()
+
+
+    public void TryToDie()
     {
-
+        if (canBeHurt)
+            Die();
     }
-
-    private void Hurt()
-    {
-
-    }
-
     public void Die()
     {
         Debug.Log("isDied");
@@ -34,9 +35,6 @@ public class PlayerHealthBehaviour : MonoBehaviour
         // 重新加载当前场景
         SceneManager.LoadScene(currentSceneName);
     }
-
-
- 
 
     [HideInInspector]
     public int health
