@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.LogWarning("CameraFollow2D: Target is not assigned.");
+            //Debug.LogWarning("CameraFollow2D: Target is not assigned.");
             return;
         }
 

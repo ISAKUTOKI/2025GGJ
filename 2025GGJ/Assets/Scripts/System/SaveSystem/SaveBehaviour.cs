@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystemehaviour : MonoBehaviour
+public class SaveSystemBhaviour : MonoBehaviour
 {
     /// <summary>
     /// 存档系统
     /// </summary>
 
-    public static SaveSystemehaviour Instance; // 单例模式
+    public static SaveSystemBhaviour Instance; // 单例模式
 
     [HideInInspector] public List<SaveData> savePoints = new List<SaveData>(); // 存档列表
 
@@ -16,7 +16,15 @@ public class SaveSystemehaviour : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

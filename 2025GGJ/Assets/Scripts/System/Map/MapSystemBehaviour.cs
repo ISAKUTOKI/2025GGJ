@@ -20,10 +20,17 @@ public class MapSystemBehaviour : MonoBehaviour
     [HideInInspector] public DangerZone dangerZone;
     [HideInInspector] public ExtendZone extendZone;
     // Start is called before the first frame update
-
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
@@ -33,7 +40,7 @@ public class MapSystemBehaviour : MonoBehaviour
         deflectThreeCellsZone = GetComponentInChildren<DeflectThreeCellsZone>();
         blowDownOneCellZone = GetComponentInChildren<BlowDownOneCellZone>();
         dangerZone = GetComponentInChildren<DangerZone>();
-        extendZone=GetComponentInChildren<ExtendZone>();
+        extendZone = GetComponentInChildren<ExtendZone>();
     }
     // Update is called once per frame
     void Update()

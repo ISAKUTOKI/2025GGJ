@@ -9,7 +9,7 @@ public class BlowDownOneCellZone : MonoBehaviour
     {
         if (playerCanBeBlew && !PlayerBehaviour.Instance.move.isMoving)
         {
-            Debug.Log("玩家移动完成，触发积雨云效果");
+            //Debug.Log("玩家移动完成，触发积雨云效果");
             PlayerBehaviour.Instance.move.currentMoveCoroutine = StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(1, Vector3.down));
             playerCanBeBlew = false; // 重置标记，等待下一次触发
         }
@@ -20,7 +20,7 @@ public class BlowDownOneCellZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerCanBeBlew = true;
-            Debug.Log("玩家进入积雨云区");
+            //Debug.Log("玩家进入积雨云区");
         }
     }
 
@@ -29,7 +29,7 @@ public class BlowDownOneCellZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerCanBeBlew = false;
-            Debug.Log("玩家离开积雨云区");
+            //Debug.Log("玩家离开积雨云区");
         }
     }
 }

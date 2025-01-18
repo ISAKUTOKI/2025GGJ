@@ -27,10 +27,10 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isBackMoveing = false;
 
     //反弹用的变量
-    public Vector3 deflectDirection;
+    [HideInInspector]public Vector3 deflectDirection;
 
     //穿越用的变量
-    public Vector3 currentDirection;
+    [HideInInspector]public Vector3 currentDirection;
 
 
 
@@ -49,6 +49,8 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
+        StartCoroutine(PlayerBehaviour.Instance.playerSound.PlayMoveSound());
+        Debug.Log("响了！");
         backToPosition = transform.position;
         //Debug.Log("记录当前位置");
 

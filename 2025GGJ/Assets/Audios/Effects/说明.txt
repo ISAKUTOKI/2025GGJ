@@ -1,0 +1,16 @@
+ocean文件夹：含有海洋的背景音乐，两首歌曲同时循环播放
+land文件夹：含有陆地的背景音乐，两首歌曲同时循环播放
+sky文件夹：含有一首天空的背景音乐，循环播放
+
+boiling bubble：吃到沸腾气泡时触发的音效//getboolingbubble
+boiling：沸腾值增加一格时，触发的音效//boilingtimercountdown
+boom：玩家气泡爆炸时触发的音效//died
+bounce：触碰到反弹墙，触发的音效//deflect
+cross_cloud：穿越云层时，触发的音效//crosscloud
+lighteing：进入乌云格时候，触发的音效
+move1：移动时，触发的音效1
+move2：移动时，触发的音效2
+（每次移动交替播放）
+ocean current：被洋流吹走时，触发的音效
+
+rainddrop：被积雨云吹走时，触发的音效

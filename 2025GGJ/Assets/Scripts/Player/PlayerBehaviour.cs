@@ -20,12 +20,20 @@ public class PlayerBehaviour : MonoBehaviour
 
     public PlayerHealthBehaviour health { get; private set; }
 
-    public GameObject view;
+    public PlayerSound playerSound { get; private set; }
 
+    public GameObject view;
     private void Awake()
     {
-        Instance = this;
-
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     private void Start()
     {
@@ -34,6 +42,7 @@ public class PlayerBehaviour : MonoBehaviour
         groundCheck = GetComponentInChildren<PlayerGroundCheck>();
         position = GetComponent<PlayerPosition>();
         health = GetComponent<PlayerHealthBehaviour>();
+        playerSound = GetComponent<PlayerSound>();
     }
 
 }

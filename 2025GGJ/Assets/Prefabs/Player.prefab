@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 7068915972958446795}
   - component: {fileID: 485408181652142745}
   - component: {fileID: 8243885182345537759}
+  - component: {fileID: 1794615707728661962}
   - component: {fileID: 6066542149959578268}
   - component: {fileID: 3806180022445857733}
   m_Layer: 0
@@ -206,6 +207,9 @@ MonoBehaviour:
   moveWaitTime: 0.2
   isMoving: 0
   isForcedMove: 0
+  isBackMoveing: 0
+  deflectDirection: {x: 0, y: 0, z: 0}
+  currentDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &8243885182345537759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +222,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c6e806314197b4796476e4443dd641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBeHurt: 1
+--- !u!114 &1794615707728661962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382914763575922943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47991d77624a994dbecd2019b97de0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSoundList:
+  - {fileID: 8300000, guid: 181ee1875badc914f8097b207b26f86b, type: 3}
+  - {fileID: 8300000, guid: ee5069a9da610804b9529ef8a0ac6a33, type: 3}
 --- !u!58 &6066542149959578268
 CircleCollider2D:
   m_ObjectHideFlags: 0
