@@ -544,6 +544,8 @@ GameObject:
   m_Component:
   - component: {fileID: 682556264}
   - component: {fileID: 682556265}
+  - component: {fileID: 682556267}
+  - component: {fileID: 682556266}
   m_Layer: 0
   m_Name: BoilingSystem
   m_TagString: Untagged
@@ -584,9 +586,35 @@ MonoBehaviour:
   boilTimer_2: {fileID: 1560088391}
   boilTimer_1Bottom: {fileID: 1061212264}
   boilTimer_2Bottom: {fileID: 163883268}
-  boilTimerTotalTime: 1
   boilingTimerFullBar: {fileID: 1065987323}
+  BoilTimer: {fileID: 0}
+  BoilingTimer: {fileID: 0}
+--- !u!114 &682556266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682556263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e621a176b0e2b14b9c7bf13ba32cdc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   boilingTimerCellCount: 20
+--- !u!114 &682556267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682556263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5185bf1b666573a4eb957059b06c0c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boilTimerTotalTime: 2
 --- !u!1 &696316378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec95fdd862ce85444a054905e9bde094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 0}
+  view: {fileID: 648973945}
 --- !u!114 &2056062167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,10 +1308,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497a29b89ebc9ac4c9f5235bdefd00b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveCellCount: 0
+  moveCellCount: 1
   cellSize: 1
-  waitTime: 0.2
-  moveSpeed: 10
+  moveSpeed: 20
+  moveWaitTime: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

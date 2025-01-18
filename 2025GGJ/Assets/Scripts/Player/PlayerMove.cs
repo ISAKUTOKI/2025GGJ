@@ -8,44 +8,45 @@ public class PlayerMove : MonoBehaviour
     /// 所操控角色的移动系统
     /// </summary>
 
-    [HideInInspector] public int moveCellCount; // 每次移动的格子数
+    [SerializeField] private int moveCellCount; // 每次移动的格子数
     [SerializeField] private int cellSize = 1; // 每格的大小（单位：Unity 单位）
-    private bool isMoving = false; // 是否正在移动
-    [SerializeField] private float waitTime; // 移动后的等待时间
     [SerializeField] private float moveSpeed = 5f; // 玩家移动速度
+    [SerializeField] private float moveWaitTime;
 
-    private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
+    private bool isMoving = false; // 是否正在移动
+    //private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
 
     void Start()
     {
-        moveCellCount = 1; // 初始化每次移动的格子数
+        if (moveCellCount == 0)
+            moveCellCount = 1; // 初始化每次移动的格子数，保证至少为1
     }
 
     void Update()
     {
         MoveCheck();
-        ProcessMoveQueue(); // 处理移动队列
+        //ProcessMoveQueue(); // 处理移动队列
     }
 
     /// <summary>
     /// 处理移动队列
     /// </summary>
-    private void ProcessMoveQueue()
-    {
-        if (!isMoving && moveQueue.Count > 0)
-        {
-            Vector3 direction = moveQueue.Dequeue();
-            StartCoroutine(PlayerMoveCells(moveCellCount, direction));
-        }
-    }
+    //private void ProcessMoveQueue()
+    //{
+    //    if (!isMoving && moveQueue.Count > 0)
+    //    {
+    //        Vector3 direction = moveQueue.Dequeue();
+    //        StartCoroutine(PlayerMoveCells(moveCellCount, direction));
+    //    }
+    //}
 
     /// <summary>
     /// 添加移动请求到队列
     /// </summary>
-    public void RequestMove(Vector3 direction)
-    {
-        moveQueue.Enqueue(direction);
-    }
+    //public void RequestMove(Vector3 direction)
+    //{
+    //    moveQueue.Enqueue(direction);
+    //}
 
     public IEnumerator PlayerMoveCells(int i, Vector3 moveDirection)
     {
@@ -63,8 +64,11 @@ public class PlayerMove : MonoBehaviour
         // 确保最终位置准确
         transform.position = targetPosition;
 
+        Debug.Log("开始等待");
         // 延迟 waitTime 秒
-        yield return new WaitForSeconds(waitTime);
+        Debug.Log("结束");
+
+        yield return new WaitForSeconds(moveWaitTime);
 
         isMoving = false; // 标记为移动结束
     }
@@ -79,8 +83,8 @@ public class PlayerMove : MonoBehaviour
         if (Mathf.Abs(horizontal) < threshold) horizontal = 0;
         if (Mathf.Abs(vertical) < threshold) vertical = 0;
 
-        // 注释掉向下移动的功能
-        if (vertical < 0) vertical = 0; // 忽略向下的输入
+        // 忽略向下移动
+        if (vertical < 0) vertical = 0;
 
         // 确保每次只能选择一个方向（水平或垂直）
         if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
@@ -99,13 +103,10 @@ public class PlayerMove : MonoBehaviour
 
     private void MoveCheck()
     {
-        if (isMoving) return; // 如果正在移动，直接返回
+        if (isMoving)
+            return;
 
         Vector3 moveDirection = GetMoveDirection();
-
-        if (moveDirection != Vector3.zero) // 如果有输入
-        {
-            RequestMove(moveDirection); // 将移动请求添加到队列
-        }
+        StartCoroutine(PlayerMoveCells(moveCellCount, moveDirection));
     }
 }
