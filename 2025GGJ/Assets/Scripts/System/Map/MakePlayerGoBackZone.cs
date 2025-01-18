@@ -8,7 +8,7 @@ public class MakePlayerGoBackZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("Íæ¼Ò×²Ç½");
+            Debug.Log("Íæ¼Ò×²Ç½");
             PlayerBehaviour.Instance.move.MoveBack();
         }
     }

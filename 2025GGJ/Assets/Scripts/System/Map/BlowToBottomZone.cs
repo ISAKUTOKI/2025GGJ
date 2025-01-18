@@ -5,7 +5,6 @@ using UnityEngine;
 public class BlowToBottomZone : MonoBehaviour
 {
     [SerializeField] private Vector3 BlowToDirection;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

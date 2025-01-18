@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditorInternal.VersionControl.ListControl;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -25,8 +26,9 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public Coroutine currentMoveCoroutine;
     [HideInInspector] public bool isBackMoved = false;
 
-    //穿越用的变量
-    [HideInInspector]public Vector3 currentMoveDirection;
+    //反弹用的变量
+    public Vector3 deflectDirection;
+
 
 
     //private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
@@ -44,7 +46,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
-        currentMoveDirection = MoveDirection;
+        deflectDirection = MoveDirection * -1;
         backToPosition = transform.position;
         //Debug.Log("记录当前位置");
 
