@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollisionCheck : MonoBehaviour
+public class KillZone : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,12 +14,5 @@ public class PlayerCollisionCheck : MonoBehaviour
     void Update()
     {
         
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other==gameObject.CompareTag("TileMaps"))
-        {
-
-        }
     }
 }

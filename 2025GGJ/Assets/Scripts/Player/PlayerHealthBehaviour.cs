@@ -16,8 +16,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F12))
-            Die();
+
     }
 
     private void Hurt()

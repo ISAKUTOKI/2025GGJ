@@ -21,8 +21,8 @@ public class PlayerMove : MonoBehaviour
     private bool canMoveAgain = true;
 
     //回溯的变量
-    private Vector3 lastPosition;
-    [HideInInspector]public Coroutine currentMoveCoroutine;
+    private Vector3 backToPosition;
+    [HideInInspector] public Coroutine currentMoveCoroutine;
 
 
     //private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
@@ -36,11 +36,17 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         TryToMove(moveCellCount);
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            MoveBack();
+        }
     }
 
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
-        lastPosition=transform.position;
+        backToPosition = transform.position;
+        Debug.Log("记录当前位置");
 
         isMoving = true; ///标记为正在移动
 
@@ -53,7 +59,7 @@ public class PlayerMove : MonoBehaviour
         }/// 平滑移动到目标位置
 
         Debug.Log("计时减了");
-        if(!isForcedMove)
+        if (!isForcedMove)
             BoilingSystemBehaviour.Instance.BoilingTimer.boilingTimerCellCount -= 1;///使沸腾计时器-1
 
         // 确保最终位置准确
@@ -77,6 +83,7 @@ public class PlayerMove : MonoBehaviour
         if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
             Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
+            currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, GetMoveDirection()));
             CanMoveAgainCheck();
             canMoveAgain = false;
         }
@@ -137,8 +144,36 @@ public class PlayerMove : MonoBehaviour
 
     public void MoveBack()
     {
-        StopCoroutine(currentMoveCoroutine);
-        currentMoveCoroutine = null;
-        currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, lastPosition));
+        if (isMoving && currentMoveCoroutine != null)
+        {
+            Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
+            StopCoroutine(currentMoveCoroutine); // 停止当前移动协程
+            currentMoveCoroutine = StartCoroutine(MoveBackToPosition()); // 启动回溯协程
+        }
+        else
+        {
+            Debug.LogWarning("无法回溯：当前没有正在移动或已经回溯。");
+        }
+    }
+    private IEnumerator MoveBackToPosition()
+    {
+        isMoving = true; // 标记为正在移动
+        isForcedMove = true; // 标记为强制移动
+
+        while (Vector3.Distance(transform.position, backToPosition) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, backToPosition, moveSpeed * Time.deltaTime);
+            yield return null; // 等待下一帧
+        }
+
+        // 确保最终位置准确
+        transform.position = backToPosition;
+
+        yield return new WaitForSeconds(moveWaitTime); // 移动冷却
+
+        isMoving = false; // 标记为移动结束
+        isForcedMove = false; // 标记为强制移动结束
+        canMoveAgain = true; // 可以再次移动
+        currentMoveCoroutine = null; // 清除引用
     }
 }

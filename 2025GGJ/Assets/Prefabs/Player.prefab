@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4865073416373364889}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7408088399541472009}
@@ -119,12 +119,11 @@ GameObject:
   - component: {fileID: 7068232498250458507}
   - component: {fileID: 1330813179289007096}
   - component: {fileID: 5964767109332426186}
-  - component: {fileID: 3313572460973041089}
   - component: {fileID: 7074125800347026517}
   - component: {fileID: 859766463222140794}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +139,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7408088399541472009}
   m_Father: {fileID: 0}
@@ -200,18 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8cec44fe90a7c46ba263b92f10e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3313572460973041089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450397405778300597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122aa2b23a5bd5b4b90a96e0c5ed4790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &7074125800347026517
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -244,9 +231,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0012668371, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.273269
+  m_Radius: 0.25
 --- !u!50 &859766463222140794
 Rigidbody2D:
   serializedVersion: 4
@@ -262,7 +249,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -285,7 +272,7 @@ GameObject:
   - component: {fileID: 7408088399541472009}
   m_Layer: 0
   m_Name: View
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
