@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - UICamera
+  - TileMaps
   layers:
   - Default
   - TransparentFX

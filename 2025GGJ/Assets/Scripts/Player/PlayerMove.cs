@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -17,11 +18,12 @@ public class PlayerMove : MonoBehaviour
     //移动可行性的变量
     [HideInInspector] public bool isMoving = false; // 是否正在移动
     [HideInInspector] public bool isForcedMove = false;//是否正在被强迫移动
-    private bool isTryToMove = false;//是否正在尝试移动
+    private bool canMoveAgain = true;
 
-    //检测当前移动方向的变量
-    float horizontalInput; // 水平输入值
-    float verticalInput;   // 垂直输入值
+    //回溯的变量
+    private Vector3 lastPosition;
+    [HideInInspector]public Coroutine currentMoveCoroutine;
+
 
     //private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
 
@@ -33,44 +35,26 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        MoveableCheck();
-        MoveDirectionCheck();
-       
-        //ProcessMoveQueue(); // 处理移动队列
+        TryToMove(moveCellCount);
     }
 
-    /// <summary>
-    /// 处理移动队列
-    /// </summary>
-    //private void ProcessMoveQueue()
-    //{
-    //    if (!isMoving && moveQueue.Count > 0)
-    //    {
-    //        Vector3 direction = moveQueue.Dequeue();
-    //        StartCoroutine(PlayerMoveCells(moveCellCount, direction));
-    //    }
-    //}
-
-    /// <summary>
-    /// 添加移动请求到队列
-    /// </summary>
-    //public void RequestMove(Vector3 direction)
-    //{
-    //    moveQueue.Enqueue(direction);
-    //}
-
-    public IEnumerator PlayerMoveCells(int i, Vector3 moveDirection)
+    public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
-        isMoving = true; // 标记为正在移动
+        lastPosition=transform.position;
 
-        Vector3 targetPosition = transform.position + moveDirection * (i * cellSize);
+        isMoving = true; ///标记为正在移动
 
-        // 平滑移动到目标位置
+        Vector3 targetPosition = transform.position + MoveDirection * (i * cellSize);///定目标位置
+
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return null; // 等待下一帧
-        }
+        }/// 平滑移动到目标位置
+
+        Debug.Log("计时减了");
+        if(!isForcedMove)
+            BoilingSystemBehaviour.Instance.BoilingTimer.boilingTimerCellCount -= 1;///使沸腾计时器-1
 
         // 确保最终位置准确
         transform.position = targetPosition;
@@ -81,67 +65,80 @@ public class PlayerMove : MonoBehaviour
         //Debug.Log("结束");
 
 
-        isMoving = false; //标记为移动结束
-        isForcedMove = false;//标记为强制移动结束
+        isMoving = false; ///标记为移动结束
+        isForcedMove = false;///标记为强制移动结束
+        canMoveAgain = true;///可以再次移动
+        currentMoveCoroutine = null; // 清除引用
         //Debug.Log(PlayerBehaviour.Instance.move.isForcedMove);
-    }
+    }///使玩家移动的方法，同时在移动结束后重置移动相关变量
 
-    private Vector3 GetMoveDirection()
+    public void TryToMove(int moveCellCount)
     {
-        float horizontal = Input.GetAxis("Horizontal"); // 获取水平输入（A/D 或 左/右箭头）
-        float vertical = Input.GetAxis("Vertical");     // 获取垂直输入（W/S 或 上/下箭头）
-
-        //// 设置输入阈值，过滤无效输入
-        //float threshold = 0.2f;
-        //if (Mathf.Abs(horizontal) < threshold) horizontal = 0;
-        //if (Mathf.Abs(vertical) < threshold) vertical = 0;
-
-        // 忽略向下移动
-        if (vertical < 0) vertical = 0;
-
-        // 确保每次只能选择一个方向（水平或垂直）
-        if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
+        if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
-            vertical = 0; // 如果水平输入更大，忽略垂直输入
+            Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
+            CanMoveAgainCheck();
+            canMoveAgain = false;
         }
-        else
-        {
-            horizontal = 0; // 如果垂直输入更大，忽略水平输入
-        }
+    }///尝试移动，如果能动并且输入不为空就动
 
-        // 根据输入值计算移动方向
-        Vector3 direction = new Vector3(horizontal, vertical, 0).normalized;
-
-        isTryToMove = direction != Vector3.zero;
-        //Debug.Log("是否正在尝试移动： "+isTryToMove);
-
-        return direction;
-    }
-
-    private void MoveableCheck()
+    public Vector3 GetMoveDirection()
     {
-        if (isForcedMove) 
-            return; // 如果正在强制移动，直接返回
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            return Vector3.up;
+        }
+        //else if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    return Vector3.down;
+        //}
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            return Vector3.left;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            return Vector3.right;
+        }
+        return Vector3.zero;
+    }///读取输入的方法
+
+    private void CanMoveAgainCheck()
+    {
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            canMoveAgain = true;
+        }
+        //if (Input.GetKeyUp(KeyCode.S))
+        //{
+        //    canMoveAgain = true;
+        //}
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            canMoveAgain = true;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            canMoveAgain = true;
+        }
+    }///松开按键就可以再次移动
+
+    private bool Moveable()
+    {
+        if (isForcedMove)
+            return false;
         Vector3 moveDirection = GetMoveDirection();
-        if (!isTryToMove)
-            return;
         if (isMoving)
-            return;
-        StartCoroutine(PlayerMoveCells(moveCellCount, moveDirection));
-    }//确保是在可以移动的状态
+            return false;
+        if (!canMoveAgain)
+            return false;
+        return true;
+    }///确保是在可以移动的状态
 
-    private void MoveDirectionCheck()
+    public void MoveBack()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        if (horizontalInput != 0 && verticalInput != 0)
-        {
-            //Debug.Log("玩家正在尝试斜向移动");
-            return;
-        }
-        else if (horizontalInput != 0 || verticalInput != 0)
-        {
-
-        }
-    }//移动方向检测
+        StopCoroutine(currentMoveCoroutine);
+        currentMoveCoroutine = null;
+        currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, lastPosition));
+    }
 }

@@ -20,6 +20,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public PlayerHealthBehaviour health { get; private set; }
 
+    public PlayerCollisionCheck collisionCheck { get; private set; }
+
 
     public GameObject view;
 
@@ -35,5 +37,6 @@ public class PlayerBehaviour : MonoBehaviour
         groundCheck=GetComponentInChildren<PlayerGroundCheck>();
         position= GetComponent<PlayerPosition>();
         health= GetComponent<PlayerHealthBehaviour>();
+        collisionCheck = GetComponent<PlayerCollisionCheck>();
     }
 }
