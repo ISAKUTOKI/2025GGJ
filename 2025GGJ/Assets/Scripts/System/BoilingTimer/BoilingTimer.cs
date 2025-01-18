@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BoilingTimer : MonoBehaviour
@@ -10,8 +11,8 @@ public class BoilingTimer : MonoBehaviour
     float boilingTimerTotalCellCount; // 几倍，用于把沸腾计时同步到0~1
 
     // 沸腾计时器——打点用变量列表
-    int lastCount;
-    List<int> CountToMakePlayerMoveUp = new List<int>();
+    int firstCount;
+    [SerializeField] List<int> CountToMakePlayerMoveUp = new List<int>();//列表为从大到小
 
     //// 用于防止重复触发移动
     //private bool hasTriggeredMove = false;
@@ -20,7 +21,6 @@ public class BoilingTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddIntToList(1, 2, 4, 6, 9, 12, 16); // 设置打点的位置（格数）
         ResetBoilingTimerSystem();
     }
 
@@ -44,36 +44,45 @@ public class BoilingTimer : MonoBehaviour
     private void RunBoilingTimer()
     {
         ChangeBoilingTimerImage();
-        if (boilingTimerCellCount <= 0)
-            PlayerBehaviour.Instance.health.Die();
     }
 
     private void ChangeBoilingTimerImage()
     {
         BoilingSystemBehaviour.Instance.boilingTimerFullBar.fillAmount = (float)boilingTimerCellCount / boilingTimerTotalCellCount;//使值匹配0~1
-
-        if (boilingTimerCellCount == lastCount )
-        {
-            SetLastCount();
-            MakePlayerMoveUp(1, Vector3.up);
-        }
+        BoilintTimerCurrentCountCheck();
     }//匹配数值和动画
 
     private void ResetBoilingTimerSystem()
     {
-        lastCount = CountToMakePlayerMoveUp[CountToMakePlayerMoveUp.Count - 1]; // 打点数初始化
-        Debug.Log(lastCount);
+        if (CountToMakePlayerMoveUp.Count == 0)
+            AddIntToList(72, 60, 48, 40, 32, 26, 20, 15, 10, 6); // 如果打点列表为空就设置一个10个元素的默认打点（从大到小）
+        else
+            firstCount = CountToMakePlayerMoveUp[0]; // 打点数初始化为第0个值（最大的值）
+        //Debug.Log(lastCount);
         if (boilingTimerCellCount == 0)
-            boilingTimerCellCount = 100; // 确保沸腾计时器至少有一个默认的20格而不是0
-        boilingTimerTotalCellCount = boilingTimerCellCount; // 确定沸腾计时器的大小，相除可化值为0~1
+            boilingTimerCellCount = 100; // 确保沸腾计时器至少有一个默认的100格而不是0
+        boilingTimerTotalCellCount = boilingTimerCellCount; // 确定沸腾计时器的大小，使其相除时可化值为0~1
     }
 
-    private void MakePlayerMoveUp(int i, Vector3 moveDirection)
+    private IEnumerator MakePlayerMoveUpDelay(int i, Vector3 moveDirection)
     {
-        Debug.Log("强制移动");
+        while (PlayerBehaviour.Instance.move.isMoving)
+        {
+            yield return null;
+            Debug.Log("正在移动，所以动不了");
+        }
+        PlayerBehaviour.Instance.move.isForcedMove = true;
+        StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(i, moveDirection));
+    }
+
+    private void TryMakePlayerMoveUp(int i, Vector3 moveDirection)
+    {
+        //Debug.Log("强制移动");
+        PlayerBehaviour.Instance.move.isForcedMove = true;
         if (PlayerBehaviour.Instance != null && PlayerBehaviour.Instance.move != null)
         {
-            PlayerBehaviour.Instance.move.PlayerMoveCells(i, moveDirection);
+            //Debug.Log(PlayerBehaviour.Instance.move.isForcedMove);
+            StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(i, moveDirection));
         }
         else
         {
@@ -85,11 +94,32 @@ public class BoilingTimer : MonoBehaviour
     {
         if (CountToMakePlayerMoveUp.Count <= 0)
             return;
-        Debug.Log("沸腾计时器到达 " + lastCount + " 格");
-        CountToMakePlayerMoveUp.RemoveAt(CountToMakePlayerMoveUp.Count - 1); // 删除最后一个整数
+        //Debug.Log("沸腾计时器到达 " + firstCount + " 格");
+        CountToMakePlayerMoveUp.RemoveAt(0); // 删除最后一个整数
         if (CountToMakePlayerMoveUp.Count > 0)
         {
-            lastCount = CountToMakePlayerMoveUp[CountToMakePlayerMoveUp.Count - 1]; // 读取最后一个（最大的）打点的数字
+            firstCount = CountToMakePlayerMoveUp[0]; // 读取最后一个（最大的）打点的数字
         }
+    }
+
+    private void BoilintTimerCurrentCountCheck()
+    {
+        if (boilingTimerCellCount == firstCount)
+        {
+            SetLastCount();
+            if (!PlayerBehaviour.Instance.move.isMoving)
+            {
+                //Debug.Log("立即移动");
+                TryMakePlayerMoveUp(1, Vector3.up);
+            }//如果当前没在移动就立即移动
+            else
+            {
+                StartCoroutine(MakePlayerMoveUpDelay(1, Vector3.up));
+                //Debug.Log("延迟移动");
+            }//否则就开始协程"延迟开始"
+        }//打点检测
+
+        if (boilingTimerCellCount <= 0)
+            PlayerBehaviour.Instance.health.Die();//死亡检测
     }
 }
