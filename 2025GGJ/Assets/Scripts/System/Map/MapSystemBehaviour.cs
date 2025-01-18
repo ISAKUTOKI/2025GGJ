@@ -16,9 +16,9 @@ public class MapSystemBehaviour : MonoBehaviour
     /// 以下为特殊格
     /// </summary>
     [HideInInspector] public DeflectThreeCellsZone deflectThreeCellsZone;
-    [HideInInspector] public BlowToBottomZone blowToBottomZone;
     [HideInInspector] public BlowDownOneCellZone blowDownOneCellZone;
     [HideInInspector] public DangerZone dangerZone;
+    [HideInInspector] public ExtendZone extendZone;
     // Start is called before the first frame update
 
     private void Awake()
@@ -31,9 +31,9 @@ public class MapSystemBehaviour : MonoBehaviour
         goBackZone = GetComponentInChildren<MakePlayerGoBackZone>();
 
         deflectThreeCellsZone = GetComponentInChildren<DeflectThreeCellsZone>();
-        blowToBottomZone = GetComponentInChildren<BlowToBottomZone>();
         blowDownOneCellZone = GetComponentInChildren<BlowDownOneCellZone>();
         dangerZone = GetComponentInChildren<DangerZone>();
+        extendZone=GetComponentInChildren<ExtendZone>();
     }
     // Update is called once per frame
     void Update()

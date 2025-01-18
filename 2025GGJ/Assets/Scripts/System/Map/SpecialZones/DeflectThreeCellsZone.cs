@@ -9,7 +9,7 @@ public class DeflectThreeCellsZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Íæ¼Ò×²Ç½");
-            PlayerBehaviour.Instance.move.MoveBackThreeCells();
+            PlayerBehaviour.Instance.move.MoveBackCells(3);
         }
     }
 }

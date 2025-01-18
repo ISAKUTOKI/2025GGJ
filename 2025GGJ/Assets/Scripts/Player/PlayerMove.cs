@@ -24,10 +24,13 @@ public class PlayerMove : MonoBehaviour
     //回溯用的变量
     private Vector3 backToPosition;
     [HideInInspector] public Coroutine currentMoveCoroutine;
-    [HideInInspector] public bool isBackMoved = false;
+    [HideInInspector] public bool isBackMoveing = false;
 
     //反弹用的变量
     public Vector3 deflectDirection;
+
+    //穿越用的变量
+    public Vector3 currentDirection;
 
 
 
@@ -83,6 +86,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
+            currentDirection = GetMoveDirection();
             deflectDirection = GetMoveDirection() * -1;
             //Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
             currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, GetMoveDirection()));
@@ -144,65 +148,64 @@ public class PlayerMove : MonoBehaviour
         return true;
     }///确保是在可以移动的状态
 
-    public void MoveBack()
+    //public void MoveBack()
+    //{
+    //    if (isMoving && currentMoveCoroutine != null)
+    //    {
+    //        //Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
+    //        StopCoroutine(currentMoveCoroutine); // 停止当前移动协程
+    //        currentMoveCoroutine = StartCoroutine(MoveBackToPosition()); // 启动回溯协程
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("无法回溯：当前没有正在移动或已经回溯。");
+    //    }
+    //}///回溯
+    //private IEnumerator MoveBackToPosition()
+    //{
+    //    isBackMoveing = true;
+    //    isMoving = true; // 标记为正在移动
+    //    isForcedMove = true; // 标记为强制移动
+
+    //    while (Vector3.Distance(transform.position, backToPosition) > 0.01f)
+    //    {
+    //        transform.position = Vector3.MoveTowards(transform.position, backToPosition, moveSpeed * Time.deltaTime);
+    //        yield return null; // 等待下一帧
+    //    }
+
+    //    // 确保最终位置准确
+    //    transform.position = backToPosition;
+
+    //    yield return new WaitForSeconds(moveWaitTime); // 移动冷却
+
+    //    isBackMoveing = false;
+    //    isMoving = false; // 标记为移动结束
+    //    isForcedMove = false; // 标记为强制移动结束
+    //    canMoveAgain = true; // 可以再次移动
+    //    currentMoveCoroutine = null; // 清除引用
+    //}///回溯的协程
+
+
+    public void MoveBackCells(int moveCounts)
     {
         if (isMoving && currentMoveCoroutine != null)
         {
-            //Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
             StopCoroutine(currentMoveCoroutine); // 停止当前移动协程
-            currentMoveCoroutine = StartCoroutine(MoveBackToPosition()); // 启动回溯协程
-        }
-        else
-        {
-            Debug.LogWarning("无法回溯：当前没有正在移动或已经回溯。");
-        }
-    }///回溯
-    private IEnumerator MoveBackToPosition()
-    {
-        isBackMoved = true;
-        isMoving = true; // 标记为正在移动
-        isForcedMove = true; // 标记为强制移动
-
-        while (Vector3.Distance(transform.position, backToPosition) > 0.01f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, backToPosition, moveSpeed * Time.deltaTime);
-            yield return null; // 等待下一帧
-        }
-
-        // 确保最终位置准确
-        transform.position = backToPosition;
-
-        yield return new WaitForSeconds(moveWaitTime); // 移动冷却
-
-        isBackMoved = false;
-        isMoving = false; // 标记为移动结束
-        isForcedMove = false; // 标记为强制移动结束
-        canMoveAgain = true; // 可以再次移动
-        currentMoveCoroutine = null; // 清除引用
-    }///回溯的协程
-
-
-    public void MoveBackThreeCells()
-    {
-        if (isMoving && currentMoveCoroutine != null)
-        {
-            //Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
-            StopCoroutine(currentMoveCoroutine); // 停止当前移动协程
-            currentMoveCoroutine = StartCoroutine(MoveBackThreeCellsCoroutine()); // 启动回溯协程
+            currentMoveCoroutine = StartCoroutine(MoveBackCellsCoroutine(moveCounts)); // 启动回溯协程
         }
         else
         {
             Debug.LogWarning("无法回溯：当前没有正在移动或已经回溯。");
         }
     }
-    private IEnumerator MoveBackThreeCellsCoroutine()
+    private IEnumerator MoveBackCellsCoroutine(int moveCounts)
     {
         PlayerBehaviour.Instance.health.canBeHurt = false;
 
-        Debug.Log("移动方向是 " + GetMoveDirection());
-        Debug.Log("反弹方向是 " + deflectDirection);
+        //Debug.Log("移动方向是 " + GetMoveDirection());
+        //Debug.Log("反弹方向是 " + deflectDirection);
 
-        isBackMoved = true;
+        isBackMoveing = true;
         isMoving = true; // 标记为正在移动
         isForcedMove = true; // 标记为强制移动
 
@@ -216,8 +219,8 @@ public class PlayerMove : MonoBehaviour
         // 确保最终位置准确
         transform.position = backToPosition;
         Debug.Log("到达反弹位置 " + transform.position);
-        // 第二步：从 backToPosition 向 deflectDirection 方向移动两格
-        Vector3 targetPosition = backToPosition + deflectDirection * (2 * cellSize); // 计算目标位置
+        // 第二步：从 backToPosition 向 deflectDirection 方向移动n-1
+        Vector3 targetPosition = backToPosition + deflectDirection * ((moveCounts - 1) * cellSize); // 计算目标位置
 
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
@@ -227,14 +230,14 @@ public class PlayerMove : MonoBehaviour
 
         // 确保最终位置准确
         transform.position = targetPosition;
-        Debug.Log("到达指定位置 " + targetPosition);
+        //Debug.Log("到达指定位置 " + targetPosition);
 
-        Debug.Log("又移动了 " + targetPosition);
+        //Debug.Log("又移动了 " + targetPosition);
 
 
         yield return new WaitForSeconds(moveWaitTime); // 移动冷却
 
-        isBackMoved = false;
+        isBackMoveing = false;
         isMoving = false; // 标记为移动结束
         isForcedMove = false; // 标记为强制移动结束
         canMoveAgain = true; // 可以再次移动
