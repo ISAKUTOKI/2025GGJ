@@ -55,7 +55,7 @@ public class BoilingTimer : MonoBehaviour
     private void ResetBoilingTimerSystem()
     {
         if (CountToMakePlayerMoveUp.Count == 0)
-            AddIntToList(80,70,60,50,40,30,20,10,5); // 如果打点列表为空就设置一个默认打点（从大到小）
+            AddIntToList(80, 70, 60, 50, 40, 30, 20, 10, 5); // 如果打点列表为空就设置一个默认打点（从大到小）
         else
             firstCount = CountToMakePlayerMoveUp[0]; // 打点数初始化为第0个值（最大的值）
         //Debug.Log(lastCount);
@@ -69,7 +69,7 @@ public class BoilingTimer : MonoBehaviour
         while (PlayerBehaviour.Instance.move.isMoving)
         {
             yield return null;
-            Debug.Log("正在移动，所以动不了");
+            //Debug.Log("正在移动，所以动不了");
         }
         PlayerBehaviour.Instance.move.isForcedMove = true;
         PlayerBehaviour.Instance.move.currentMoveCoroutine = StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(i, moveDirection));

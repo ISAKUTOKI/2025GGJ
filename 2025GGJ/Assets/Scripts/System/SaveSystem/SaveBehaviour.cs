@@ -10,7 +10,7 @@ public class SaveSystemehaviour : MonoBehaviour
 
     public static SaveSystemehaviour Instance; // 单例模式
 
-    public List<SaveData> savePoints = new List<SaveData>(); // 存档列表
+    [HideInInspector] public List<SaveData> savePoints = new List<SaveData>(); // 存档列表
 
     [SerializeField] GameObject initialSavePoint;
 

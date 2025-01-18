@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakePlayerGoBackZone : MonoBehaviour
+public class BlowBackThreeCellsZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("Íæ¼Ò×²Ç½");
             PlayerBehaviour.Instance.move.MoveBack();
+            PlayerBehaviour.Instance.move.currentMoveCoroutine = StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(2, PlayerBehaviour.Instance.move.currentMoveDirection * -1));
         }
     }
 }

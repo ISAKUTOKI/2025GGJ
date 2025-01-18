@@ -1,0 +1,3 @@
+所挂载物体需要有
+①一个作为触发器的Collider 2d
+②一个静态的Rigidbody 2d

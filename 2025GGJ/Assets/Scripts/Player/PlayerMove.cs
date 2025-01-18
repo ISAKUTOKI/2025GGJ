@@ -20,9 +20,13 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector] public bool isForcedMove = false;//是否正在被强迫移动
     private bool canMoveAgain = true;
 
-    //回溯的变量
+    //回溯用的变量
     private Vector3 backToPosition;
     [HideInInspector] public Coroutine currentMoveCoroutine;
+    [HideInInspector] public bool isBackMoved = false;
+
+    //穿越用的变量
+    [HideInInspector]public Vector3 currentMoveDirection;
 
 
     //private Queue<Vector3> moveQueue = new Queue<Vector3>(); // 移动请求队列
@@ -36,17 +40,13 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         TryToMove(moveCellCount);
-
-        if (Input.GetKeyDown(KeyCode.F12))
-        {
-            MoveBack();
-        }
     }
 
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
+        currentMoveDirection = MoveDirection;
         backToPosition = transform.position;
-        Debug.Log("记录当前位置");
+        //Debug.Log("记录当前位置");
 
         isMoving = true; ///标记为正在移动
 
@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
             yield return null; // 等待下一帧
         }/// 平滑移动到目标位置
 
-        Debug.Log("计时减了");
+        //Debug.Log("计时减了");
         if (!isForcedMove)
             BoilingSystemBehaviour.Instance.BoilingTimer.boilingTimerCellCount -= 1;///使沸腾计时器-1
 
@@ -82,7 +82,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
-            Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
+            //Debug.Log("尝试向 " + GetMoveDirection() + " 移动");
             currentMoveCoroutine = StartCoroutine(PlayerMoveCells(moveCellCount, GetMoveDirection()));
             CanMoveAgainCheck();
             canMoveAgain = false;
@@ -146,7 +146,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (isMoving && currentMoveCoroutine != null)
         {
-            Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
+            //Debug.Log("撞墙，回溯到出发位置: " + backToPosition);
             StopCoroutine(currentMoveCoroutine); // 停止当前移动协程
             currentMoveCoroutine = StartCoroutine(MoveBackToPosition()); // 启动回溯协程
         }
@@ -154,9 +154,10 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.LogWarning("无法回溯：当前没有正在移动或已经回溯。");
         }
-    }
+    }///回溯
     private IEnumerator MoveBackToPosition()
     {
+        isBackMoved = true;
         isMoving = true; // 标记为正在移动
         isForcedMove = true; // 标记为强制移动
 
@@ -171,9 +172,11 @@ public class PlayerMove : MonoBehaviour
 
         yield return new WaitForSeconds(moveWaitTime); // 移动冷却
 
+        isBackMoved = false;
         isMoving = false; // 标记为移动结束
         isForcedMove = false; // 标记为强制移动结束
         canMoveAgain = true; // 可以再次移动
         currentMoveCoroutine = null; // 清除引用
-    }
+    }///回溯的协程
+
 }

@@ -29,10 +29,11 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Start()
     {
-        move= GetComponent<PlayerMove>();
-        jump= GetComponent<PlayerJump>();
-        groundCheck=GetComponentInChildren<PlayerGroundCheck>();
-        position= GetComponent<PlayerPosition>();
-        health= GetComponent<PlayerHealthBehaviour>();
+        move = GetComponent<PlayerMove>();
+        jump = GetComponent<PlayerJump>();
+        groundCheck = GetComponentInChildren<PlayerGroundCheck>();
+        position = GetComponent<PlayerPosition>();
+        health = GetComponent<PlayerHealthBehaviour>();
     }
+
 }
