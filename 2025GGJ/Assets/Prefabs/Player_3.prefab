@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1292566002136116476}
@@ -171,7 +171,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7199999, y: 1.7199999, z: 1.7199999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1292566002136116476}
@@ -209,7 +209,7 @@ MonoBehaviour:
   isMoving: 0
   isForcedMove: 0
   canMoveAgain: 0
-  isBackMoveing: 0
+  isBackMoving: 0
   deflectDirection: {x: 0, y: 0, z: 0}
   currentDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1870526750307980270
@@ -284,9 +284,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 2.602688}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 2.271527
 --- !u!50 &4593992650375472513
 Rigidbody2D:
   serializedVersion: 4
