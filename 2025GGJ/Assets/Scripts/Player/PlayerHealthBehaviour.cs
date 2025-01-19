@@ -12,6 +12,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
     [HideInInspector] public bool canBeHurt = true;
 
 
+
     private void Update()
     {
         if (MapSystemBehaviour.Instance.killZone.isMustBeKilled)
@@ -27,6 +28,13 @@ public class PlayerHealthBehaviour : MonoBehaviour
     }
     public void Die()
     {
+        Invoke("DieEvents",2.0f);
+    }
+
+    private void DieEvents()
+    {
+
+        PlayerBehaviour.Instance.animator.SetTrigger("Die");
         Debug.Log("isDied");
         //SaveSystemehaviour.Instance.LoadLastSave();
 
@@ -35,7 +43,6 @@ public class PlayerHealthBehaviour : MonoBehaviour
         // 重新加载当前场景
         SceneManager.LoadScene(currentSceneName);
     }
-
     [HideInInspector]
     public int health
     {
