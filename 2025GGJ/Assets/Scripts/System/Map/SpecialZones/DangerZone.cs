@@ -28,7 +28,7 @@ public class DangerZone : MonoBehaviour
         {
             CrossedCount = 0;
             StayOutTimer = 0.2f; // 重置计时器
-            Debug.Log("玩家在区域外停留时间过长，计数器重置");
+            //Debug.Log("玩家在区域外停留时间过长，计数器重置");
         }
 
         // 如果计数达到2，触发玩家死亡

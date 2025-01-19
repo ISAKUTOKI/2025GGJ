@@ -19,8 +19,8 @@ public class BoilingSystemBehaviour : MonoBehaviour
 
     // 沸腾计时器的变量
 
-    [HideInInspector] public BoilTimer BoilTimer;
-    [HideInInspector] public BoilingTimer BoilingTimer;
+    [HideInInspector] public BoilTimer boilTimer;
+    [HideInInspector] public BoilingBarBehaviour boilBarBehaviour;
 
     private void Awake()
     {
@@ -28,8 +28,8 @@ public class BoilingSystemBehaviour : MonoBehaviour
     }
     void Start()
     {
-        BoilTimer = GetComponent<BoilTimer>();
-        BoilingTimer = GetComponent<BoilingTimer>();
+        boilTimer = GetComponent<BoilTimer>();
+        boilBarBehaviour = GetComponent<BoilingBarBehaviour>();
     }
 
     void Update()

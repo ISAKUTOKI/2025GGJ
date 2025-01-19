@@ -48,7 +48,7 @@ public class BoilingTimer : MonoBehaviour
 
     private void ChangeBoilingTimerImage()
     {
-        BoilingSystemBehaviour.Instance.boilingTimerFullBar.fillAmount = boilingTimerCellCount / boilingTimerTotalCellCount;//使值匹配0~1
+        //BoilingSystemBehaviour.Instance.boilingTimerFullBar.fillAmount = boilingTimerCellCount / boilingTimerTotalCellCount;//使值匹配0~1
         BoilingTimerCurrentCountCheck();
     }//匹配数值和动画
 

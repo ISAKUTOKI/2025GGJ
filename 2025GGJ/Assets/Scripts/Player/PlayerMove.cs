@@ -68,7 +68,7 @@ public class PlayerMove : MonoBehaviour
 
         //Debug.Log("计时减了");
         if (!isForcedMove)
-            BoilingSystemBehaviour.Instance.BoilingTimer.boilingTimerCellCount -= 1;///使沸腾计时器-1
+            BoilingSystemBehaviour.Instance.boilBarBehaviour.CurrentFullBarDropBy(1); // 每次减少1个单位
 
         // 确保最终位置准确
         transform.position = targetPosition;

@@ -8,73 +8,92 @@ public class BoilTimer : MonoBehaviour
     // 烧煮计时器的变量
     private Image boilTimer;
     private float boilTimerDuration; // 烧煮计时，秒数
-    [SerializeField] private float boilTimerTotalTime; // 几倍，用于把烧煮计时同步到0~1
-    bool justRunningBoilTimer_1; // 切换计时器用的
-
+    [SerializeField] private float boilTimerTotalTime = 3f; // 总时间，默认3秒
+    private bool justRunningBoilTimer_1 = true; // 切换计时器用的
 
     void Start()
     {
         ResetBoilTimerSystem();
     }
 
-    // Update is called once per frame
     void Update()
     {
         RunBoilTimer(); // 运行烧煮计时器
     }
 
     /// <summary>
-    /// 以下为烧煮计时器的系统
+    /// 运行烧煮计时器
     /// </summary>
     private void RunBoilTimer()
     {
         boilTimerDuration -= Time.deltaTime;
         if (boilTimerDuration <= 0)
         {
-            BoilingSystemBehaviour.Instance.BoilingTimer.boilingTimerCellCount -= 1;
+            // 替换为 boilBarBehaviour 的接口
+            BoilingSystemBehaviour.Instance.boilBarBehaviour.CurrentFullBarDropBy(1); // 每次减少1个单位
             boilTimerDuration = boilTimerTotalTime;
             SwitchBoilTimer();
         }
         ChangeBoilTimerImage();
     }
 
+    /// <summary>
+    /// 切换计时器
+    /// </summary>
     private void SwitchBoilTimer()
     {
         if (justRunningBoilTimer_1)
         {
             boilTimer = BoilingSystemBehaviour.Instance.boilTimer_2;
             justRunningBoilTimer_1 = false;
-            BoilingSystemBehaviour.Instance.boilTimer_1Bottom.SetActive(true); // 将1底激活
-            BoilingSystemBehaviour.Instance.boilTimer_2Bottom.SetActive(false); // 将2底关闭
-        } // 正在用1的话就切换到2
+            BoilingSystemBehaviour.Instance.boilTimer_1Bottom.SetActive(true); // 激活1底
+            BoilingSystemBehaviour.Instance.boilTimer_2Bottom.SetActive(false); // 关闭2底
+        }
         else
         {
             boilTimer = BoilingSystemBehaviour.Instance.boilTimer_1;
             justRunningBoilTimer_1 = true;
-            BoilingSystemBehaviour.Instance.boilTimer_1Bottom.SetActive(false); // 将1底关闭
-            BoilingSystemBehaviour.Instance.boilTimer_2Bottom.SetActive(true); // 将2底激活
-        } // 正在用2的话就切换到1
-    } // 在倒计时结束的时候进行计时器切换
-
-    private void ChangeBoilTimerImage()
-    {
-        boilTimer.fillAmount = boilTimerDuration / boilTimerTotalTime;
+            BoilingSystemBehaviour.Instance.boilTimer_1Bottom.SetActive(false); // 关闭1底
+            BoilingSystemBehaviour.Instance.boilTimer_2Bottom.SetActive(true); // 激活2底
+        }
     }
 
+    /// <summary>
+    /// 更新计时器图像
+    /// </summary>
+    private void ChangeBoilTimerImage()
+    {
+        if (boilTimer != null)
+        {
+            boilTimer.fillAmount = boilTimerDuration / boilTimerTotalTime;
+        }
+    }
+
+    /// <summary>
+    /// 重置烧煮计时器系统
+    /// </summary>
     private void ResetBoilTimerSystem()
     {
-        if (boilTimerTotalTime == 0)
-            boilTimerTotalTime = 3; // 确保烧煮计时器至少有一个默认的3秒而不是0
-        boilTimerDuration = boilTimerTotalTime; // 确定烧煮计时器的大小，相除可化值为0~1
-        boilTimer = BoilingSystemBehaviour.Instance.boilTimer_1; // 设置默认的烧煮计时器
-        justRunningBoilTimer_1 = true; // 默认使用烧煮计时器1
-    } // 重启烧煮计时器系统
+        if (boilTimerTotalTime <= 0)
+            boilTimerTotalTime = 3f; // 确保烧煮计时器至少有一个默认的3秒
 
+        boilTimerDuration = boilTimerTotalTime;
+        boilTimer = BoilingSystemBehaviour.Instance.boilTimer_1; // 设置默认计时器
+        justRunningBoilTimer_1 = true; // 默认使用计时器1
+    }
+
+    /// <summary>
+    /// 检查计时器是否赋值
+    /// </summary>
     private void BoilTimerChecker()
     {
         if (boilTimer == null)
-            Debug.Log("没赋上值");
+        {
+            Debug.LogError("烧煮计时器未赋值！");
+        }
         else
-            Debug.Log(boilTimer.name);
-    } // 当烧煮计时器没赋上值时报错//否则就报告名字
+        {
+            Debug.Log($"当前计时器：{boilTimer.name}");
+        }
+    }
 }
