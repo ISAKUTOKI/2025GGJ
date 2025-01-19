@@ -209,7 +209,7 @@ MonoBehaviour:
   isMoving: 0
   isForcedMove: 0
   canMoveAgain: 0
-  isBackMoveing: 0
+  isBackMoving: 0
   deflectDirection: {x: 0, y: 0, z: 0}
   currentDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &71334648977203674
@@ -284,9 +284,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.394326}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.3558965
 --- !u!50 &3806180022445857733
 Rigidbody2D:
   serializedVersion: 4

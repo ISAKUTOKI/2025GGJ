@@ -19,18 +19,18 @@ public class PlayerMove : MonoBehaviour
     //移动可行性的变量
     [HideInInspector] public bool isMoving = false; // 是否正在移动
     [HideInInspector] public bool isForcedMove = false;//是否正在被强迫移动
-    [HideInInspector] public bool canMoveAgain;
+    [HideInInspector] public bool canMoveAgain = true;
 
     //回溯用的变量
     private Vector3 backToPosition;
     [HideInInspector] public Coroutine currentMoveCoroutine;
-    [HideInInspector] public bool isBackMoveing = false;
+    [HideInInspector] public bool isBackMoving = false;
 
     //反弹用的变量
-    [HideInInspector]public Vector3 deflectDirection;
+    [HideInInspector] public Vector3 deflectDirection;
 
     //穿越用的变量
-    [HideInInspector]public Vector3 currentDirection;
+    [HideInInspector] public Vector3 currentDirection;
 
 
 
@@ -38,6 +38,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        canMoveAgain = true;
         if (moveCellCount == 0)
             moveCellCount = 1; // 初始化每次移动的格子数，保证至少为1
     }
@@ -87,6 +88,7 @@ public class PlayerMove : MonoBehaviour
 
     public void TryToMove(int moveCellCount)
     {
+        //Debug.Log("可以检测移动");
         if (Moveable() && GetMoveDirection() != Vector3.zero)
         {
             currentDirection = GetMoveDirection();
@@ -119,7 +121,7 @@ public class PlayerMove : MonoBehaviour
         return Vector3.zero;
     }///读取输入的方法
 
-    
+
 
     private void CanMoveAgainCheck()
     {
@@ -143,13 +145,20 @@ public class PlayerMove : MonoBehaviour
 
     private bool Moveable()
     {
+        //Debug.Log("1");
+
         if (isForcedMove)
             return false;
+        //Debug.Log("2");
+
         Vector3 moveDirection = GetMoveDirection();
         if (isMoving)
             return false;
+        //Debug.Log("正在判断canMoveAgain");
+
         if (!canMoveAgain)
             return false;
+        //Debug.Log("可以移动");
         return true;
     }///确保是在可以移动的状态
 
@@ -207,10 +216,10 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerBehaviour.Instance.health.canBeHurt = false;
 
-        //Debug.Log("移动方向是 " + GetMoveDirection());
+        Debug.Log("移动方向是 " + GetMoveDirection());
         //Debug.Log("反弹方向是 " + deflectDirection);
 
-        isBackMoveing = true;
+        isBackMoving = true;
         isMoving = true; // 标记为正在移动
         isForcedMove = true; // 标记为强制移动
 
@@ -242,7 +251,7 @@ public class PlayerMove : MonoBehaviour
 
         yield return new WaitForSeconds(moveWaitTime); // 移动冷却
 
-        isBackMoveing = false;
+        isBackMoving = false;
         isMoving = false; // 标记为移动结束
         isForcedMove = false; // 标记为强制移动结束
         canMoveAgain = true; // 可以再次移动

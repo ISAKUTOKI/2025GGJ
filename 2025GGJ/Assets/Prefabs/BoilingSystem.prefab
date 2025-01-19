@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5185bf1b666573a4eb957059b06c0c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boilTimerTotalTime: 2
+  boilTimerTotalTime: 8
 --- !u!114 &6872700260007415061
 MonoBehaviour:
   m_ObjectHideFlags: 0

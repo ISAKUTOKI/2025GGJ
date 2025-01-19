@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayeSoundOnTriggered : MonoBehaviour
+public class PlaySoundOnTriggered : MonoBehaviour
 {
     [SerializeField] List<AudioClip> clipList; // 音效列表
     [SerializeField]private float _volume = 1.0f; // 私有字段，用于存储音量值
