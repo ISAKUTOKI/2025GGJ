@@ -3,7 +3,7 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 
-public class PlayVideoOnClick : MonoBehaviour
+public class TapToBoom : MonoBehaviour
 {
     public GameObject Boom;
     public GameObject lastShowBackGround;
