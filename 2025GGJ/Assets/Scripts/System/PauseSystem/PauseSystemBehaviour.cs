@@ -16,15 +16,8 @@ public class PauseSystemBehaviour : MonoBehaviour
     private void Awake()
     {
         // 单例模式
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+
     }
 
     private void Start()
@@ -45,7 +38,7 @@ public class PauseSystemBehaviour : MonoBehaviour
 
         if (pauseMenuUIs == null)
         {
-            Debug.LogWarning("没有暂停菜单！！");
+            //Debug.LogWarning("没有暂停菜单！！");
         }
         else
         {

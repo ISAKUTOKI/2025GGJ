@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaySoundOnStart : MonoBehaviour
 {
     [SerializeField] List<AudioClip> clipList;
-    private float _volume = 0.2f; // 私有字段，用于存储音量值
+    [SerializeField]private float _volume = 0.5f; // 私有字段，用于存储音量值
 
     float volume
     {

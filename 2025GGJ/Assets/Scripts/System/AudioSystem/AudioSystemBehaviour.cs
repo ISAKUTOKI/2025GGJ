@@ -6,7 +6,7 @@ public class AudioSystemBehaviour : MonoBehaviour
 {
     public static AudioSystemBehaviour Instance;
 
-    [SerializeField] private AudioSource musicSource, effectSource;
+    [SerializeField] public AudioSource musicSource, effectSource;
     // Start is called before the first frame update
     private void Awake()
     {
