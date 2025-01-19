@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> moveSoundList;
+    [SerializeField] List<AudioClip> moveClipList;
     int soundCount;
+
     private void Start()
     {
-        if (moveSoundList == null)
+        if (moveClipList == null)
         {
-            moveSoundList = new();
+            moveClipList = new List<AudioClip>();
+            soundCount = 0;
         }
         else
         {
-            soundCount = moveSoundList.Count;
+            soundCount = moveClipList.Count;
         }
     }
 
     public IEnumerator PlayMoveSound()
     {
-        MoveSound(soundCount);
+        MoveSound();
         yield return null;
     }
 
-    void MoveSound(int soundCount)
+    void MoveSound()
     {
-        AudioSystemBehaviour.Instance.PlayerSound(moveSoundList[Random.Range(0, soundCount-1)],1);
+        if (soundCount > 0)
+        {
+            AudioSystemBehaviour.Instance.PlayerSound(moveClipList[Random.Range(0, soundCount)], 1);
+        }
+        else
+        {
+            Debug.LogWarning("No move sounds available.");
+        }
     }
 }

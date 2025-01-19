@@ -25,7 +25,6 @@ public class MapSystemBehaviour : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

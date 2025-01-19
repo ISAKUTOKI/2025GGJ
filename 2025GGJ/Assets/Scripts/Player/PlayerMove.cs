@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     //移动可行性的变量
     [HideInInspector] public bool isMoving = false; // 是否正在移动
     [HideInInspector] public bool isForcedMove = false;//是否正在被强迫移动
-    private bool canMoveAgain = true;
+    [HideInInspector] public bool canMoveAgain;
 
     //回溯用的变量
     private Vector3 backToPosition;
@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     public IEnumerator PlayerMoveCells(int i, Vector3 MoveDirection)
     {
         StartCoroutine(PlayerBehaviour.Instance.playerSound.PlayMoveSound());
+        PlayerBehaviour.Instance.playerAnimator.SwitchAnimator(MoveDirection);
         //Debug.Log("响了！");
         backToPosition = transform.position;
         //Debug.Log("记录当前位置");
@@ -117,6 +118,8 @@ public class PlayerMove : MonoBehaviour
         }
         return Vector3.zero;
     }///读取输入的方法
+
+    
 
     private void CanMoveAgainCheck()
     {

@@ -20,10 +20,10 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && PlayerBehaviour.Instance.groundCheck.isOnGround)
-        {
-            Jump();
-        }
+        //if (Input.GetKeyDown(KeyCode.W) && PlayerBehaviour.Instance.groundCheck.isOnGround)
+        //{
+        //    Jump();
+        //}
     }
 
     private void Jump()

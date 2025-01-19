@@ -14,7 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public PlayerJump jump { get; private set; }
 
-    public PlayerGroundCheck groundCheck { get; private set; }
+    //public PlayerGroundCheck groundCheck { get; private set; }
 
     public PlayerPosition position { get; private set; }
 
@@ -22,13 +22,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     public PlayerSound playerSound { get; private set; }
 
+    public PlayerAnimator playerAnimator { get; private set; }
+
+    public Animator animator { get; private set; }
+
+
     public GameObject view;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -39,10 +43,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         move = GetComponent<PlayerMove>();
         jump = GetComponent<PlayerJump>();
-        groundCheck = GetComponentInChildren<PlayerGroundCheck>();
+        //groundCheck = GetComponentInChildren<PlayerGroundCheck>();
         position = GetComponent<PlayerPosition>();
         health = GetComponent<PlayerHealthBehaviour>();
         playerSound = GetComponent<PlayerSound>();
+        playerAnimator = GetComponent<PlayerAnimator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
 }
