@@ -28,7 +28,7 @@ public class DangerZone : MonoBehaviour
         {
             CrossedCount = 0;
             StayOutTimer = 0.2f; // 重置计时器
-            //Debug.Log("玩家在区域外停留时间过长，计数器重置");
+            Debug.Log("玩家在区域外停留时间过长，计数器重置");
         }
 
         // 如果计数达到2，触发玩家死亡
@@ -47,7 +47,7 @@ public class DangerZone : MonoBehaviour
             CrossedCount++;
             isStayOut = false;
             StayOutTimer = 0.2f; // 重置计时器
-            //Debug.Log("玩家进入危险区域，当前计数：" + CrossedCount);
+            Debug.Log("玩家进入危险区域，当前计数：" + CrossedCount);
         }
     }
 
@@ -57,7 +57,7 @@ public class DangerZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isStayOut = true;
-            //Debug.Log("玩家离开危险区域");
+            Debug.Log("玩家离开危险区域");
         }
     }
 }

@@ -35,7 +35,7 @@ public class StartMenuBehaviour : MonoBehaviour
     }
     public void StartNewGame()
     {
-        SceneManager.LoadScene("1-1");
+        SceneManager.LoadScene("1-0");
     }
     public void Option()
     {

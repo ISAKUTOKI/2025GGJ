@@ -28,13 +28,14 @@ public class PlayerHealthBehaviour : MonoBehaviour
     }
     public void Die()
     {
-        Invoke("DieEvents",2.0f);
+        DieEvents();
+        //Invoke("DieEvents",2.0f);
     }
 
     private void DieEvents()
     {
 
-        PlayerBehaviour.Instance.animator.SetTrigger("Die");
+        //PlayerBehaviour.Instance.animator.SetTrigger("Die");
         Debug.Log("isDied");
         //SaveSystemehaviour.Instance.LoadLastSave();
 
