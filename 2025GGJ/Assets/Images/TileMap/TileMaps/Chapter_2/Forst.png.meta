@@ -1,0 +1,740 @@
+fileFormatVersion: 2
+guid: e3a52a9cc4d12c3488020c8be519d03c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Forst_3
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1536.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62f5f2e4584e2b4b8cd85e0b7be78a6
+      internalID: 486177510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_4
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1536.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0418040495f7aeb46ba515138cd37ce9
+      internalID: 80278687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1536.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35eaa606732dd841b138ebb6b76af49
+      internalID: -1946197566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_6
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1536.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f43cafed8bacda41a8ee15d8fd49261
+      internalID: 645862536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_7
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0931d1a51a1fc8e45864a9692e8df13b
+      internalID: -379139014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1281.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c80e3eec4b50c42a541b98646564ed
+      internalID: -361919284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_9
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1281.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5dedb4fecdd924aa0805c76e303240
+      internalID: -741351097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_10
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1281.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33b0f660b828714a8c9f2b7509d53d7
+      internalID: -228769023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_11
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1281.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d63a87e890f46746a39fe9a5e8b3884
+      internalID: -998163496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1281.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7c3867e6a237a46b68e4b735eb49c5
+      internalID: -1644763910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_14
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1026.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5977672fbe356749b98349ea1288dfb
+      internalID: -772583562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_15
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1026.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f1de0526abd62418bb1a0c73456e85
+      internalID: 1173262938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_16
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1026.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c535b30a849214596ba0a9cdf32bd6
+      internalID: 1077156678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_17
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1026.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d2dda42e115ca4c84e787efed7cc4b
+      internalID: 1852479510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1026.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1c434e6cc8ffd4d8a907fec8df4910
+      internalID: -1475879200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 771.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac3f7a183f53474bb0e5a27b7858146
+      internalID: -1731978147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_20
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 771.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31f2a7eac4c9064e8956a07e5708fa8
+      internalID: 1017961787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_21
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 771.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a0e552ed72c28498ca9aefad5f4cce
+      internalID: 1762498183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 771.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee897e103c13fd64cad9c7a77efe2d77
+      internalID: 961049790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_23
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 516.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf933a49fb81c4439cc9bfe237d9813
+      internalID: -932891400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_24
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 516.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9243e90ce714044f80adf1a6f40bddb
+      internalID: -1981317835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_25
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 516.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a1aa105d17d27499e95ff734e93717
+      internalID: -582798055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_26
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 261.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3430ef78c05ee024981df4751a59150c
+      internalID: -1408470257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_27
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 261.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dabed6332f76a14ba5d906297ac7588
+      internalID: 146701534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forst_28
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 261.375
+        width: 253.375
+        height: 253.625
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -126.6875, y: 126.8125}
+        - {x: -126.6875, y: -126.625}
+        - {x: 126.6875, y: -126.625}
+        - {x: 126.6875, y: 126.8125}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418862fefd3f46b4c87d7add9ef62222
+      internalID: -1427008866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Forst_0: -1066378525
+      Forst_1: 2005516142
+      Forst_10: -228769023
+      Forst_11: -998163496
+      Forst_12: -1644763910
+      Forst_13: -1271990317
+      Forst_14: -772583562
+      Forst_15: 1173262938
+      Forst_16: 1077156678
+      Forst_17: 1852479510
+      Forst_18: -1475879200
+      Forst_19: -1731978147
+      Forst_2: -153462951
+      Forst_20: 1017961787
+      Forst_21: 1762498183
+      Forst_22: 961049790
+      Forst_23: -932891400
+      Forst_24: -1981317835
+      Forst_25: -582798055
+      Forst_26: -1408470257
+      Forst_27: 146701534
+      Forst_28: -1427008866
+      Forst_29: -1276938298
+      Forst_3: 486177510
+      Forst_30: 134024787
+      Forst_31: 492889184
+      Forst_4: 80278687
+      Forst_5: -1946197566
+      Forst_6: 645862536
+      Forst_7: -379139014
+      Forst_8: -361919284
+      Forst_9: -741351097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
