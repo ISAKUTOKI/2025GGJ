@@ -8,15 +8,60 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/OptionScene.unity
+    guid: b57b16b9e677bd449b3731fc37238138
   - enabled: 1
-    path: Assets/Scenes/Chapter_1/1-1.unity
+    path: Assets/Scenes/1-0.unity
+    guid: 1b564b6a293801846be1e412397d703b
+  - enabled: 1
+    path: Assets/Scenes/1-1.unity
     guid: 8cde2f7bed25b4f49b951b34b7252158
+  - enabled: 1
+    path: Assets/Scenes/1-2.unity
+    guid: 3103238b84928ff469f44e47093d27c0
+  - enabled: 1
+    path: Assets/Scenes/1-3.unity
+    guid: cf6dc9e53d3460c4d9db6e5126c7c3d0
+  - enabled: 1
+    path: Assets/Scenes/1-4.unity
+    guid: fec97bc39f8d48248a85cdbae9b171e5
+  - enabled: 1
+    path: Assets/Scenes/2-0.unity
+    guid: b180df90d05b79b41a3eac2df2ff9415
+  - enabled: 1
+    path: Assets/Scenes/2-1.unity
+    guid: 57458a152a629844dae3ebf34a24272a
+  - enabled: 1
+    path: Assets/Scenes/2-2.unity
+    guid: 4e99fa7169c2d1445ab2e9dadfc073a4
+  - enabled: 1
+    path: Assets/Scenes/2-3.unity
+    guid: 91049fe807f2c0c40bb5ad0e9f388696
+  - enabled: 1
+    path: Assets/Scenes/2-4.unity
+    guid: 215f43822629b45478e310f9e55b0713
+  - enabled: 1
+    path: Assets/Scenes/3-0.unity
+    guid: 85f4545c862aff141a391638bdcc441f
+  - enabled: 1
+    path: Assets/Scenes/3-1.unity
+    guid: f9e6c4b95ccd51946a2ef2509dff714c
+  - enabled: 1
+    path: Assets/Scenes/3-2.unity
+    guid: 912a8c4b29b07a74496b813269f4a6cf
+  - enabled: 1
+    path: Assets/Scenes/3-3.unity
+    guid: 9d233047c4898aa4bb4a4c6588094f52
+  - enabled: 1
+    path: Assets/Scenes/3-4.unity
+    guid: 76eb705d3c1fc3e4f8ce0bb60d90b4db
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 15fcedf8281236940b92dd853acd6a48
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 6289af01375ce384c8576f918785a816
-  - enabled: 1
-    path: Assets/Scenes/OptionScene.unity
-    guid: b57b16b9e677bd449b3731fc37238138
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 498c12f3ef4d2b943b69478108fe4a6a, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 8aa3e52a037ac2546bf8e374468f2b2a, type: 2}

@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveCellCount: 1
-  cellSize: 1.72
+  cellSize: 1.02
   moveSpeed: 20
   moveWaitTime: 0.2
   isMoving: 0
