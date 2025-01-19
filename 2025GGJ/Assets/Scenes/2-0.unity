@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 6932207971796849725, guid: f46460f8a76cb704b9ed2881a2654f5a, type: 3}
       propertyPath: clipList.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 189c6a7cfd83ecb40a3588d2b2a37459, type: 3}
+      objectReference: {fileID: 8300000, guid: 0ff10e9bf0bdbcb4eb5d66a5cbd7a6c4, type: 3}
     m_RemovedComponents:
     - {fileID: 288264800713987909, guid: f46460f8a76cb704b9ed2881a2654f5a, type: 3}
     m_RemovedGameObjects:
@@ -288,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4455584914432063811, guid: 6f35802514b059c459a6b61bc7bab471, type: 3}
       propertyPath: sceneName
-      value: 2-1
+      value: new2-1
       objectReference: {fileID: 0}
     - target: {fileID: 6652287350243886087, guid: 6f35802514b059c459a6b61bc7bab471, type: 3}
       propertyPath: m_Name

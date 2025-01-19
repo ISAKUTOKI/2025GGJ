@@ -258,6 +258,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4455584914432063811, guid: 6f35802514b059c459a6b61bc7bab471, type: 3}
+      propertyPath: sceneName
+      value: new1-1
+      objectReference: {fileID: 0}
     - target: {fileID: 6652287350243886087, guid: 6f35802514b059c459a6b61bc7bab471, type: 3}
       propertyPath: m_Name
       value: ComicSceneSystem

@@ -59,6 +59,7 @@ public class BoilingBarBehaviour : MonoBehaviour
 
         if (currentImage.fillAmount <= 0)
         {
+            //StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(1, Vector3.up));
             boilingTimerBarList.RemoveAt(0);
             boilingTimerBarImageList.RemoveAt(0);
             boilingTimerTotalCount.RemoveAt(0);

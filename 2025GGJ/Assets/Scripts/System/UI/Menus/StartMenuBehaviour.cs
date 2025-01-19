@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartMenuBehaviour : MonoBehaviour
 {
     public static StartMenuBehaviour instance;
+    //[SerializeField] string targetScene = "1-0";
     /// <summary>
     /// 开始菜单系统，以及开始菜单的点击系统
     /// </summary>

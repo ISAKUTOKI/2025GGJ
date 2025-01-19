@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/OptionScene.unity
-    guid: b57b16b9e677bd449b3731fc37238138
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 6289af01375ce384c8576f918785a816
@@ -18,47 +12,32 @@ EditorBuildSettings:
     path: Assets/Scenes/1-0.unity
     guid: 1b564b6a293801846be1e412397d703b
   - enabled: 1
-    path: Assets/Scenes/old1-1.unity
-    guid: 8cde2f7bed25b4f49b951b34b7252158
+    path: Assets/Scenes/new1-1.unity
+    guid: 7d35776d186a3f74c80e5e949b6f91ad
   - enabled: 1
-    path: Assets/Scenes/1-2.unity
-    guid: 3103238b84928ff469f44e47093d27c0
+    path: Assets/Scenes/new1-2.unity
+    guid: 316a15cdd142b6e499dee12ab16c6dbc
   - enabled: 1
-    path: Assets/Scenes/1-3.unity
-    guid: cf6dc9e53d3460c4d9db6e5126c7c3d0
-  - enabled: 0
-    path: Assets/Scenes/1-4.unity
-    guid: fec97bc39f8d48248a85cdbae9b171e5
+    path: Assets/Scenes/new1-3.unity
+    guid: 01816957490dd594c80c9bf4cb4cf665
   - enabled: 1
     path: Assets/Scenes/2-0.unity
     guid: b180df90d05b79b41a3eac2df2ff9415
   - enabled: 1
-    path: Assets/Scenes/2-1.unity
-    guid: 57458a152a629844dae3ebf34a24272a
+    path: Assets/Scenes/new2-1.unity
+    guid: f85c05275a65f9042baa0b666a8d5e68
   - enabled: 1
-    path: Assets/Scenes/2-2.unity
-    guid: d9cffd2c6fb935e4c8ea3e55ae04b5ea
-  - enabled: 0
-    path: Assets/Scenes/2-3.unity
-    guid: 91049fe807f2c0c40bb5ad0e9f388696
-  - enabled: 0
-    path: Assets/Scenes/2-4.unity
-    guid: 215f43822629b45478e310f9e55b0713
+    path: Assets/Scenes/new2-2.unity
+    guid: 33de3cd25b945ea47936ac383b947b7d
   - enabled: 1
     path: Assets/Scenes/3-0.unity
     guid: b629ce88fa9c49541906be0ebeaa92a7
   - enabled: 1
-    path: Assets/Scenes/3-1.unity
-    guid: f9e6c4b95ccd51946a2ef2509dff714c
+    path: Assets/Scenes/new3-1.unity
+    guid: 44d7dd97fc6ad9e429e03fc5b5cb1cdd
   - enabled: 1
-    path: Assets/Scenes/3-2.unity
-    guid: 4eb24b50f4c2bfd48bd14b5b14d48c6d
-  - enabled: 0
-    path: Assets/Scenes/3-3.unity
-    guid: 9d233047c4898aa4bb4a4c6588094f52
-  - enabled: 0
-    path: Assets/Scenes/3-4.unity
-    guid: 76eb705d3c1fc3e4f8ce0bb60d90b4db
+    path: Assets/Scenes/new3-2.unity
+    guid: f5539f5fe362a3a46b0838d67a2287e0
   - enabled: 1
     path: Assets/Scenes/FinalScene.unity
     guid: 15fcedf8281236940b92dd853acd6a48
