@@ -18,7 +18,6 @@ public class BoilingSystemBehaviour : MonoBehaviour
     [SerializeField] public GameObject boilTimer_2Bottom;
 
     // 沸腾计时器的变量
-    [SerializeField] public Image boilingTimerFullBar;
 
     [HideInInspector] public BoilTimer BoilTimer;
     [HideInInspector] public BoilingTimer BoilingTimer;
