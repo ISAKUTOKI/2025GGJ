@@ -10213,6 +10213,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoilingSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 1775341418163484548, guid: 1e74d6284075f3148bcab02f43bb8322, type: 3}
+      propertyPath: boilingTimerTotalCount.Array.data[0]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775341418163484548, guid: 1e74d6284075f3148bcab02f43bb8322, type: 3}
+      propertyPath: boilingTimerTotalCount.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5197000386601536377, guid: 1e74d6284075f3148bcab02f43bb8322, type: 3}
       propertyPath: boilTimerTotalTime
       value: 1

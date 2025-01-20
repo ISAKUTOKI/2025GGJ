@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class TapToBoom : MonoBehaviour
 {
     public GameObject Boom;
+    public GameObject firstShowBackGround;
     public GameObject lastShowBackGround;
     bool isTapped = false;
     [SerializeField]BoomAnimeEvents BoomAnimeEvents;
@@ -17,6 +18,7 @@ public class TapToBoom : MonoBehaviour
     {
         Boom.SetActive(false);
         lastShowBackGround.SetActive(false);
+        firstShowBackGround.SetActive(true);
 
     }
     private void Update()
@@ -42,6 +44,7 @@ public class TapToBoom : MonoBehaviour
         {
             Boom.SetActive(false);
             lastShowBackGround.SetActive(true);
+            firstShowBackGround.SetActive(false);
         }
     }
 }

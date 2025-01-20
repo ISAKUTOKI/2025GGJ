@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealthBehaviour : MonoBehaviour
@@ -40,7 +41,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
         if (PlayerBehaviour.Instance.animator != null)
         {
             PlayerBehaviour.Instance.animator.SetTrigger("Die");
-            AudioSystemBehaviour.Instance.PlayerSound(audioClip,0.5f);
+            AudioSystemBehaviour.Instance.effectSource.PlayOneShot(audioClip, 0.4f);
             Debug.Log("≤•∑≈¡ÀÀ¿Õˆ∂Øª≠");
         }
         Debug.Log("isDied");
