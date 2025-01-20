@@ -13,6 +13,7 @@ public class BoomAnimeEvents : MonoBehaviour
 
     private void ExitGame()
     {
+        Debug.Log("ÍË³öÁË");
         Application.Quit();
     }
 }
