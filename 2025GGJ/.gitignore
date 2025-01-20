@@ -85,3 +85,9 @@ Desktop.ini
 
 # 忽略 Build 目录
 /[Bb]uild/
+
+# 忽略所有 .zip 文件
+*.zip
+
+# 但允许上传 BubbleBubbledBUBBLE.zip
+BubbleBubbledBUBBLE.zip

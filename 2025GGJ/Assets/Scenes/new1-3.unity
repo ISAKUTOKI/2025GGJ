@@ -10213,6 +10213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoilingSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5197000386601536377, guid: 1e74d6284075f3148bcab02f43bb8322, type: 3}
+      propertyPath: boilTimerTotalTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6547873518892449469, guid: 1e74d6284075f3148bcab02f43bb8322, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
