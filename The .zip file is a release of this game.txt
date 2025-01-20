@@ -1,5 +1,0 @@
-This is a release of the game "Bubble Bubbled BUBBLE"'s ver0.9.9 , and we added a explain txt in this ,this file "expladin.txt" will tell you how to play this game , also have some introductions of this game.
-
-Made in 48 hours at GGJ25.
-
-Enjoy !
