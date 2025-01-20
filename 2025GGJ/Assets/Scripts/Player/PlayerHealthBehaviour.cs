@@ -10,7 +10,8 @@ public class PlayerHealthBehaviour : MonoBehaviour
     /// </summary>
 
     [HideInInspector] public bool canBeHurt = true;
-    [SerializeField] private float diedDelayTime=3.0f;
+    private float diedDelayTime = 1.5f;
+    [SerializeField]private AudioClip audioClip;
 
 
     private void Update()
@@ -36,9 +37,10 @@ public class PlayerHealthBehaviour : MonoBehaviour
 
     private void DieEvents()
     {
-        if(PlayerBehaviour.Instance.animator!=null)
+        if (PlayerBehaviour.Instance.animator != null)
         {
             PlayerBehaviour.Instance.animator.SetTrigger("Die");
+            AudioSystemBehaviour.Instance.PlayerSound(audioClip,0.5f);
             Debug.Log("≤•∑≈¡ÀÀ¿Õˆ∂Øª≠");
         }
         Debug.Log("isDied");

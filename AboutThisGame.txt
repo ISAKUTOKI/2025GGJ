@@ -1,0 +1,6 @@
+Bubble Bubbled BUBBLE
+
+This is a game about BUBBLE, who comes from somewhere under the ocean and wants to go to the sky, even to space. As a bubble, he can move anywhere he wants, but he can't go down, cause he's lighter than other things in this world!
+And this is a "bubbled" bubble, he's to bubble to be MORE BUBBLE! Can you help him to reach the sky before he got too bubble that he blew up?
+
+Input A, W or D to control BUBBLE's move, and keep an eye on the bar which is called by "Boiling Timer"(well, we have no course in the game for the moment, but this is the bar at the top of the screen), when the little circle timer turns to zero, the "Boiling Timer" will drop by 1, and BUBBLE's move also will let the "Boiling Timer" drop by one. When the "Boiling Timer" dropped to a certain level, BUBBLE will be pushed up, case BUBBLE's emotion goes more bubbled ! Be careful, you need to get to next level before the "Boiling Timer" runs out, you won't want to know what will explode when it happened.

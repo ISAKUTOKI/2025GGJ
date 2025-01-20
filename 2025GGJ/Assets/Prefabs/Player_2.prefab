@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeHurt: 1
+  audioClip: {fileID: 8300000, guid: 7f53d762b5c236f41a1583580978ef94, type: 3}
 --- !u!114 &1316928713392019409
 MonoBehaviour:
   m_ObjectHideFlags: 0

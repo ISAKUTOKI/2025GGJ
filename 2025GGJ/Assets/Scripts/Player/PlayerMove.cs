@@ -55,11 +55,17 @@ public class PlayerMove : MonoBehaviour
         //Debug.Log("响了！");
         backToPosition = transform.position;
         //Debug.Log("记录当前位置");
-
         isMoving = true; ///标记为正在移动
 
         Vector3 targetPosition = transform.position + MoveDirection * (i * cellSize);///定目标位置
 
+        //while (canMoveAgain)
+        //{
+        //    yield return null;
+        //    Debug.Log("正在重复");
+        //}///尝试性质的！！！！！！！！！！极大概率会出bug！！！！！！！
+
+        Debug.Log("开始朝目标移动");
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);

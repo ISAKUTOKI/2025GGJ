@@ -8256,11 +8256,11 @@ PrefabInstance:
     - target: {fileID: 3531156138082491615, guid: e3d853341f2dfd1498223c2d7c9b3694, type: 3}
       propertyPath: m_TileAssetArray.Array.data[2].m_Data
       value: 
-      objectReference: {fileID: 11400000, guid: 43ebe05a66ce94746beecd526c67ae8f, type: 2}
+      objectReference: {fileID: 11400000, guid: c65a5f4f00046f741ba5b67d834e4fab, type: 2}
     - target: {fileID: 3531156138082491615, guid: e3d853341f2dfd1498223c2d7c9b3694, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_Data
       value: 
-      objectReference: {fileID: -320597090, guid: 691dc71c1cdf566478fab796dbf86379, type: 3}
+      objectReference: {fileID: 1429350126, guid: b5bdc17f67dfd954aa9a0b18973a6571, type: 3}
     - target: {fileID: 3531156138082491615, guid: e3d853341f2dfd1498223c2d7c9b3694, type: 3}
       propertyPath: m_TileColorArray.Array.data[0].m_Data.a
       value: 1
