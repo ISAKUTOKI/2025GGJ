@@ -4,36 +4,50 @@ using UnityEngine;
 
 public class PlaySoundOnStart : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> clipList;
-    [SerializeField]private float _volume = 0.5f; // 私有字段，用于存储音量值
+    [SerializeField] private List<AudioClip> clipList;
+    [SerializeField] private float _volume = 0.5f;
+
+    private List<AudioSource> audioSources = new List<AudioSource>();
 
     float volume
     {
         get
         {
-            return _volume; // 返回私有字段的值
+            return _volume;
         }
         set
         {
-            _volume = Mathf.Clamp(value, 0, 1); // 限制音量范围在 0 到 1 之间
+            _volume = Mathf.Clamp(value, 0, 1); // 限制音量
         }
     }
 
     void Start()
     {
-        if (clipList == null)
+        if (clipList == null || clipList.Count == 0)
         {
-            clipList = new List<AudioClip>();
+            //Debug.Log("空");
+            return;
         }
-        else
+
+        // 确保只处理两个音效
+        int clipCount = Mathf.Min(clipList.Count, 2);
+
+        for (int i = 0; i < clipCount; i++)
         {
-            // 播放音效，并设置音量
-            foreach (var audioClip in clipList)
+            if (clipList[i] != null)
             {
-                if (audioClip != null)
-                {
-                    AudioSystemBehaviour.Instance.PlayerSound(audioClip, volume);
-                }
+                // 创建 AudioSource 组件
+                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.clip = clipList[i]; // 设置音效
+                audioSource.volume = volume; // 设置音量
+                audioSource.loop = true; // 设置循环播放
+                audioSource.Play(); // 开始播放
+
+                audioSources.Add(audioSource); // 将 AudioSource 添加到列表中
+            }
+            else
+            {
+                //Debug.Log("无效");
             }
         }
     }

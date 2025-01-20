@@ -12,7 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public PlayerMove move { get; private set; }
 
-    public PlayerJump jump { get; private set; }
+    //public PlayerJump jump { get; private set; }
 
     //public PlayerGroundCheck groundCheck { get; private set; }
 
@@ -35,7 +35,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         move = GetComponent<PlayerMove>();
-        jump = GetComponent<PlayerJump>();
+        //jump = GetComponent<PlayerJump>();
         //groundCheck = GetComponentInChildren<PlayerGroundCheck>();
         position = GetComponent<PlayerPosition>();
         health = GetComponent<PlayerHealthBehaviour>();

@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeHurt: 1
+  diedDelayTime: 1.5
 --- !u!114 &1794615707728661962
 MonoBehaviour:
   m_ObjectHideFlags: 0

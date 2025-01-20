@@ -85,7 +85,6 @@ public class PlayerMove : MonoBehaviour
         currentMoveCoroutine = null; // 清除引用
         //Debug.Log(PlayerBehaviour.Instance.move.isForcedMove);
     }///使玩家移动的方法，同时在移动结束后重置移动相关变量
-
     public void TryToMove(int moveCellCount)
     {
         //Debug.Log("可以检测移动");
@@ -99,7 +98,6 @@ public class PlayerMove : MonoBehaviour
             canMoveAgain = false;
         }
     }///尝试移动，如果能动并且输入不为空就动
-
     public Vector3 GetMoveDirection()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -120,9 +118,6 @@ public class PlayerMove : MonoBehaviour
         }
         return Vector3.zero;
     }///读取输入的方法
-
-
-
     private void CanMoveAgainCheck()
     {
         if (Input.GetKeyUp(KeyCode.W))
@@ -142,7 +137,6 @@ public class PlayerMove : MonoBehaviour
             canMoveAgain = true;
         }
     }///松开按键就可以再次移动
-
     private bool Moveable()
     {
         //Debug.Log("1");
@@ -198,8 +192,6 @@ public class PlayerMove : MonoBehaviour
     //    canMoveAgain = true; // 可以再次移动
     //    currentMoveCoroutine = null; // 清除引用
     //}///回溯的协程
-
-
     public void MoveBackCells(int moveCounts)
     {
         if (isMoving && currentMoveCoroutine != null)

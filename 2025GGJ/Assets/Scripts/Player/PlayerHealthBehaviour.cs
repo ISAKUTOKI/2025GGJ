@@ -10,13 +10,16 @@ public class PlayerHealthBehaviour : MonoBehaviour
     /// </summary>
 
     [HideInInspector] public bool canBeHurt = true;
-
+    [SerializeField] private float diedDelayTime=3.0f;
 
 
     private void Update()
     {
         if (MapSystemBehaviour.Instance.killZone.isMustBeKilled)
             Die();
+
+        if (Input.GetKeyDown(KeyCode.F12))
+            TryToDie();
     }
 
 
@@ -29,21 +32,28 @@ public class PlayerHealthBehaviour : MonoBehaviour
     public void Die()
     {
         DieEvents();
-        //Invoke("DieEvents",2.0f);
     }
 
     private void DieEvents()
     {
-
-        //PlayerBehaviour.Instance.animator.SetTrigger("Die");
+        if(PlayerBehaviour.Instance.animator!=null)
+        {
+            PlayerBehaviour.Instance.animator.SetTrigger("Die");
+            Debug.Log("播放了死亡动画");
+        }
         Debug.Log("isDied");
         //SaveSystemehaviour.Instance.LoadLastSave();
+        Invoke("LoadCurrentScene", diedDelayTime);
+    }
+    void LoadCurrentScene()
+    {
 
         // 获取当前场景的名称
         string currentSceneName = SceneManager.GetActiveScene().name;
         // 重新加载当前场景
         SceneManager.LoadScene(currentSceneName);
     }
+
     [HideInInspector]
     public int health
     {
