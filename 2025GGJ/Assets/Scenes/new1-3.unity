@@ -8371,7 +8371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069231795997026617, guid: e3d853341f2dfd1498223c2d7c9b3694, type: 3}
       propertyPath: moveCellCount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4133294202246547967, guid: e3d853341f2dfd1498223c2d7c9b3694, type: 3}
       propertyPath: clip
