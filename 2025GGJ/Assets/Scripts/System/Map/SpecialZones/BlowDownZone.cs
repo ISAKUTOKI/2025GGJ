@@ -15,7 +15,8 @@ public class BlowDownZone : MonoBehaviour
         if (playerCanBeBlewToBottom && !PlayerBehaviour.Instance.move.isMoving)
         {
             AudioSystemBehaviour.Instance.PlayerSound(clip, volume);
-            PlayerBehaviour.Instance.move.currentMoveCoroutine = StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(moveCellCount, Vector3.down));
+            PlayerBehaviour.Instance.move.currentMoveCoroutine = 
+                StartCoroutine(PlayerBehaviour.Instance.move.PlayerMoveCells(moveCellCount, Vector3.down));
             playerCanBeBlewToBottom = false; // 重置标记，等待下一次触发
         }
     }
